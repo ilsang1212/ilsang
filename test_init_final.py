@@ -3826,7 +3826,8 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 							hello = hello[:hello.find('  ')]
 						else:
 							bossData[i][6] = ''
-							
+
+						curr_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 						tmp_msg = bossData[i][0] +'컷'
 						if len(hello) > len(tmp_msg) + 3 :
 							if hello.find(':') != -1 :
@@ -3869,9 +3870,9 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 						tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 						tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 
-						if  now2 + datetime.timedelta(minutes=int(basicSetting[1])) <= tmp_bossTime[i] < now2 + datetime.timedelta(minutes=int(basicSetting[3])):
+						if  curr_now + datetime.timedelta(minutes=int(basicSetting[1])) <= tmp_bossTime[i] < curr_now + datetime.timedelta(minutes=int(basicSetting[3])):
 							bossFlag0[i] = True
-						if tmp_bossTime[i] < now2 + datetime.timedelta(minutes=int(basicSetting[1])):
+						if tmp_bossTime[i] < curr_now + datetime.timedelta(minutes=int(basicSetting[1])):
 							bossFlag[i] = True
 							bossFlag0[i] = True
 
